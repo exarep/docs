@@ -204,3 +204,27 @@
   color: var(--rh-red-50);
   font-weight: 600;
 }
+
+/* Site logo text in header */
+.site-logo-text {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.02em;
+}
+
+.site-logo-red {
+  color: var(--rh-red-50);
+}
+
+.site-logo-white {
+  color: var(--rh-white);
+}
+
+.md-header__button.md-logo {
+  padding: 0;
+}
+
+.md-header__button.md-logo img {
+  display: none;
+}

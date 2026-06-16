@@ -4,6 +4,7 @@ site_url: https://exarep.github.io
 
 theme:
   name: material
+  custom_dir: overrides
   font: false
   palette:
     - scheme: redhat
@@ -24,8 +25,7 @@ theme:
     - search.highlight
     - content.code.copy
     - content.code.annotate
-  icon:
-    logo: material/book-open-page-variant
+  logo: logo-placeholder
   favicon: assets/favicon.ico
 
 extra_css:
