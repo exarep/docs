@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Red+Hat+Mono:ital,wght@0,300..700;1,300..700&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+  --rh-red-50: #ee0000;
+  --rh-red-60: #a60000;
+  --rh-red-70: #5f0000;
+  --rh-red-10: #fce3e3;
+  --rh-red-05: #fef0f0;
+  --rh-gray-95: #151515;
+  --rh-gray-90: #1f1f1f;
+  --rh-gray-80: #292929;
+  --rh-gray-70: #383838;
+  --rh-gray-60: #4d4d4d;
+  --rh-gray-50: #707070;
+  --rh-gray-40: #a3a3a3;
+  --rh-gray-30: #c7c7c7;
+  --rh-gray-20: #e0e0e0;
+  --rh-gray-10: #f2f2f2;
+  --rh-white: #ffffff;
+  --rh-black: #000000;
+  --rh-interaction-blue-50: #0066cc;
+  --rh-interaction-blue-40: #4394e5;
+}
+
+/* Red Hat Display for headings */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6,
+.md-header,
+.md-tabs {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+/* Red Hat Text for body */
+.md-typeset,
+.md-nav {
+  font-family: "Red Hat Text", sans-serif;
+}
+
+/* Red Hat Mono for code */
+.md-typeset code,
+.md-typeset pre,
+.md-typeset kbd {
+  font-family: "Red Hat Mono", monospace;
+}
+
+/* ---- Light scheme: redhat ---- */
+[data-md-color-scheme="redhat"] {
+  --md-primary-fg-color: var(--rh-red-50);
+  --md-primary-fg-color--light: var(--rh-red-10);
+  --md-primary-fg-color--dark: var(--rh-red-60);
+  --md-primary-bg-color: var(--rh-white);
+  --md-primary-bg-color--light: var(--rh-white);
+
+  --md-accent-fg-color: var(--rh-red-50);
+  --md-accent-fg-color--transparent: rgba(238, 0, 0, 0.1);
+  --md-accent-bg-color: var(--rh-white);
+
+  --md-default-fg-color: var(--rh-gray-95);
+  --md-default-fg-color--light: var(--rh-gray-60);
+  --md-default-fg-color--lighter: var(--rh-gray-40);
+  --md-default-fg-color--lightest: var(--rh-gray-20);
+  --md-default-bg-color: var(--rh-white);
+  --md-default-bg-color--light: var(--rh-gray-10);
+  --md-default-bg-color--lighter: var(--rh-gray-10);
+  --md-default-bg-color--lightest: var(--rh-gray-10);
+
+  --md-typeset-a-color: var(--rh-interaction-blue-50);
+  --md-typeset-color: var(--rh-gray-95);
+
+  --md-code-bg-color: var(--rh-gray-10);
+  --md-code-fg-color: var(--rh-gray-95);
+
+  --md-footer-bg-color: var(--rh-gray-95);
+  --md-footer-bg-color--dark: var(--rh-black);
+  --md-footer-fg-color: var(--rh-white);
+  --md-footer-fg-color--light: var(--rh-gray-30);
+  --md-footer-fg-color--lighter: var(--rh-gray-40);
+}
+
+/* ---- Dark scheme: redhat-dark ---- */
+[data-md-color-scheme="redhat-dark"] {
+  --md-primary-fg-color: var(--rh-red-50);
+  --md-primary-fg-color--light: var(--rh-red-60);
+  --md-primary-fg-color--dark: var(--rh-red-70);
+  --md-primary-bg-color: var(--rh-white);
+  --md-primary-bg-color--light: var(--rh-gray-30);
+
+  --md-accent-fg-color: var(--rh-red-50);
+  --md-accent-fg-color--transparent: rgba(238, 0, 0, 0.1);
+  --md-accent-bg-color: var(--rh-gray-90);
+
+  --md-default-fg-color: var(--rh-gray-20);
+  --md-default-fg-color--light: var(--rh-gray-40);
+  --md-default-fg-color--lighter: var(--rh-gray-50);
+  --md-default-fg-color--lightest: var(--rh-gray-60);
+  --md-default-bg-color: var(--rh-gray-95);
+  --md-default-bg-color--light: var(--rh-gray-90);
+  --md-default-bg-color--lighter: var(--rh-gray-80);
+  --md-default-bg-color--lightest: var(--rh-gray-70);
+
+  --md-typeset-a-color: var(--rh-interaction-blue-40);
+  --md-typeset-color: var(--rh-gray-20);
+
+  --md-code-bg-color: var(--rh-gray-90);
+  --md-code-fg-color: var(--rh-gray-20);
+
+  --md-footer-bg-color: var(--rh-black);
+  --md-footer-bg-color--dark: var(--rh-black);
+  --md-footer-fg-color: var(--rh-gray-20);
+  --md-footer-fg-color--light: var(--rh-gray-40);
+  --md-footer-fg-color--lighter: var(--rh-gray-50);
+
+  color-scheme: dark;
+}
+
+/* Header styling */
+.md-header {
+  background-color: var(--rh-gray-95);
+  color: var(--rh-white);
+  font-weight: 500;
+}
+
+.md-header[data-md-state="shadow"] {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Tabs */
+.md-tabs {
+  background-color: var(--rh-gray-90);
+  color: var(--rh-white);
+}
+
+/* Hero area on the home page */
+.md-typeset .hero {
+  background: linear-gradient(135deg, var(--rh-gray-95), var(--rh-gray-80));
+  color: var(--rh-white);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.md-typeset .hero h1 {
+  color: var(--rh-white);
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.md-typeset .hero p {
+  color: var(--rh-gray-30);
+  font-size: 1.15rem;
+}
+
+.md-typeset .hero .hero-accent {
+  color: var(--rh-red-50);
+}
+
+/* Admonition Red Hat styling */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 4px;
+}
+
+/* Button styling */
+.md-typeset .md-button {
+  border-radius: 4px;
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 600;
+}
+
+.md-typeset .md-button--primary {
+  background-color: var(--rh-red-50);
+  border-color: var(--rh-red-50);
+  color: var(--rh-white);
+}
+
+.md-typeset .md-button--primary:hover {
+  background-color: var(--rh-red-60);
+  border-color: var(--rh-red-60);
+}
+
+/* Table styling */
+.md-typeset table:not([class]) {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--rh-gray-95);
+  color: var(--rh-white);
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 600;
+}
+
+[data-md-color-scheme="redhat-dark"] .md-typeset table:not([class]) th {
+  background-color: var(--rh-gray-80);
+}
+
+/* Search bar */
+.md-search__input {
+  font-family: "Red Hat Text", sans-serif;
+}
+
+/* Navigation active indicator */
+.md-nav__item--active > .md-nav__link {
+  color: var(--rh-red-50);
+  font-weight: 600;
+}
