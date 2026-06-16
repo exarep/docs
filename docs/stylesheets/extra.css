@@ -47,6 +47,11 @@
   font-family: "Red Hat Mono", monospace;
 }
 
+/* Prevent inline code from wrapping */
+.md-typeset code {
+  white-space: nowrap;
+}
+
 /* ---- Light scheme: redhat ---- */
 [data-md-color-scheme="redhat"] {
   --md-primary-fg-color: var(--rh-red-50);

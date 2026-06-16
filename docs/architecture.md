@@ -1,5 +1,36 @@
 # Architecture
 
+## Communication Flow
+
+```mermaid
+flowchart LR
+  subgraph clients["Web Application"]
+    WA["(Angular)"]
+  end
+
+  subgraph gateway["Red Hat Connectivity Link"]
+    GW["Gateway"]
+  end
+
+  subgraph apis["Backend APIs"]
+    API["API"]
+  end
+
+  subgraph data["Data"]
+    DB[("Database")]
+  end
+
+  subgraph messaging["Messaging"]
+    KAFKA["Kafka Cluster"]
+  end
+
+  WA -->|HTTPS| GW
+  GW -->|HTTPS| API
+  API --> DB
+  API --> KAFKA
+  KAFKA --> API
+```
+
 ## Core Services
 
 | Service               | Product                   | Purpose                           |
@@ -35,3 +66,13 @@ Web projects are built using Angular and ng-bootstrap. They are served using Red
 | web-public        | https://exarep.com                | Public marketing site and new customer enrollments    |
 | web-customer      | https://customer.exarep.com       | Customer portal for managing contracts and billing    |
 | web-administrator | https://administrator.exarep.com  | Administration portal for Exarep employees            |
+
+
+## API Gateways
+
+| Gateway                               | Type      | Purpose                                   |
+| ---                                   | ---       | ---                                       |
+| public.apigateway.exarep.com          | public    | API gateway for public endpoints          |
+| customer.apigateway.exarep.com        | protected | API gateway for customer endpoints        |
+| administrator.apigateway.exarep.com   | protected | API gateway for administrator endpoints   |
+
