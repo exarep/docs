@@ -60,3 +60,4 @@ nav:
   - Home: index.md
   - Architecture: architecture.md
   - Infrastructure as Code: iac.md
+  - GitOps Platform: gitops-platform.md

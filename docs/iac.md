@@ -64,6 +64,7 @@ iac/
     ├── templates/
     │   └── install-config.yaml.j2
     ├── pb-setup-dns.yaml
+    ├── pb-setup-secrets.yaml
     └── pb-create-hub-cluster.yaml
 ```
 
@@ -81,12 +82,14 @@ All variables are defined in `inventory/group_vars/all.yaml`. Playbook-specific 
 | `dns_zones`               | List of Route 53 hosted zones to create       | `cluster.exarep.com`   |
 | `cloudflare_dns_records`  | List of DNS records to create in Cloudflare   | See below              |
 | `hub_cluster`             | Hub cluster configuration                     | See below              |
+| `secrets_manager`         | AWS Secrets Manager configuration             | See below              |
 
 ## Playbooks
 
 | Playbook                             | Description                                                                        |
 | ---                                  | ---                                                                                |
 | [`pb-setup-dns.yaml`](https://github.com/exarep/iac/blob/main/playbooks/pb-setup-dns.yaml){:target="_blank"}                  | Delegates DNS zones from Cloudflare to Route 53 and creates Cloudflare DNS records |
+| [`pb-setup-secrets.yaml`](https://github.com/exarep/iac/blob/main/playbooks/pb-setup-secrets.yaml){:target="_blank"}             | Creates AWS Secrets Manager secrets with a dedicated KMS key                       |
 | [`pb-create-hub-cluster.yaml`](https://github.com/exarep/iac/blob/main/playbooks/pb-create-hub-cluster.yaml){:target="_blank"}         | Creates the OpenShift hub cluster on AWS                                           |
 
 ---
@@ -124,6 +127,41 @@ ansible-playbook playbooks/pb-setup-dns.yaml
 | A     | `dns.exarep.com`   | `1.1.1.1`             |
 | CNAME | `ntp.exarep.com`   | `time.cloudflare.com` |
 | CNAME | `docs.exarep.com`  | `exarep.github.io`    |
+
+---
+
+### [pb-setup-secrets.yaml](https://github.com/exarep/iac/blob/main/playbooks/pb-setup-secrets.yaml){:target="_blank"}
+
+Creates a dedicated KMS encryption key and provisions secrets in AWS Secrets Manager for the Exarep project. Each secret is created with a placeholder value and should be populated after the playbook runs.
+
+```shell
+ansible-playbook playbooks/pb-setup-secrets.yaml
+```
+
+#### What it does
+
+1. Validates that AWS credentials are present
+2. Creates a KMS symmetric encryption key aliased `exarep-secrets`
+3. Creates each secret defined in `secrets_manager.secrets`, encrypted with the KMS key
+4. Displays a summary with the KMS key ARN and all secret names
+
+#### Secrets
+
+| Secret                       | Description                                              |
+| ---                          | ---                                                      |
+| `exarep/aws-credentials`     | AWS credentials for External Secrets Operator (JSON)     |
+| `exarep/test`                | Test secret for validating External Secrets Operator      |
+| `exarep/cloudflare-api-token` | Cloudflare API token for DNS management                 |
+| `exarep/pull-secret`         | OpenShift pull secret for cluster provisioning           |
+| `exarep/cluster-ssh-key`     | SSH private key for cluster node access                  |
+
+After running the playbook, populate each secret:
+
+```shell
+aws secretsmanager put-secret-value \
+  --secret-id exarep/<name> \
+  --secret-string '<value>'
+```
 
 ---
 
@@ -190,6 +228,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 ansible-playbook playbooks/pb-setup-dns.yaml
+ansible-playbook playbooks/pb-setup-secrets.yaml
 ansible-playbook playbooks/pb-create-hub-cluster.yaml
 ```
 
