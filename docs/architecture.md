@@ -4,11 +4,15 @@
 
 | Service               | Product                   | Purpose                           |
 | ---                   | ---                       | ---                               |
+| dns.exarep.com        | Cloudflare DNS            | Domain Name Resolution            |
+| ntp.exarep.com        | Cloudflare NTP            | Network Time Protocol             |
+| docs.exarep.com       | GitHub Pages              | Project documentation             |
 | auth.exarep.com       | Red Hat build of Keycloak | Authentication and Authorization  |
 | secrets.exarep.com    | Hashicorp Vault           | Secrets management and KPI        |
 
 * [Red Hat build of Keycloak](https://docs.redhat.com/en/documentation/red_hat_build_of_keycloak/latest)  
 * [Hashicorp Vault](https://developer.hashicorp.com/vault)  
+* [GitHub Pages](https://pages.github.com/)  
 
 
 ## Clusters
