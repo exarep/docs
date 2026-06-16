@@ -225,6 +225,12 @@
   padding: 0;
 }
 
-.md-header__button.md-logo img {
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
   display: none;
+}
+
+.md-header__title {
+  flex-grow: 1;
+  visibility: hidden;
 }
