@@ -4,8 +4,12 @@
 
 | Service               | Product                   | Purpose                           |
 | ---                   | ---                       | ---                               |
-| auth.exarep.com       | [Red Hat build of Keycloak](https://docs.redhat.com/en/documentation/red_hat_build_of_keycloak/latest) | Authentication and Authorization  |
+| auth.exarep.com       | Red Hat build of Keycloak | Authentication and Authorization  |
 | secrets.exarep.com    | Hashicorp Vault           | Secrets management and KPI        |
+
+* [Red Hat build of Keycloak](https://docs.redhat.com/en/documentation/red_hat_build_of_keycloak/latest)  
+* [Hashicorp Vault](https://developer.hashicorp.com/vault)  
+
 
 ## Clusters
 
